@@ -1,4 +1,4 @@
-package com.mauriciojimenez.pokedex.ui.theme
+package com.mauriciojimenez.pokedex.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
