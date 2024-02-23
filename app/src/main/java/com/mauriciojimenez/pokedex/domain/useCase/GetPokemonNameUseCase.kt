@@ -10,7 +10,6 @@ class GetPokemonNameUseCase
     private val pokemonNameDaoImpl: PokemonNameDaoImpl,
     private val pokemonNameRepository: PokemonNameRepository
 ) {
-
     operator fun invoke(): Either {
         if (pokemonNameDaoImpl.getAllPokemonName().isEmpty()) {
             try {

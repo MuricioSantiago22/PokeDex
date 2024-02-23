@@ -23,7 +23,6 @@ class PokemonNameRepositoryImpl
                 Either.Success(it.results.map { it.toDomain()})
             } ?: Either.Error(ErrorEntity.EmptyResponseError)
         }else{
-            pokemonNameDaoImpl.getAllPokemonName()
             Either.Error(ErrorEntity.NetworkError(response.code()))
         }
     } catch (e: Exception) {

@@ -5,5 +5,5 @@ import com.mauriciojimenez.pokedex.data.remote.entity.dto.PokemonSpriteDto
 
 data class PokemonSpritesResponse(
     @SerializedName("sprites")
-    val sprites: PokemonSpriteDto? = null
+    val sprites: List<PokemonSpriteDto> = listOf()
 )

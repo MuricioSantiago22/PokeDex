@@ -4,15 +4,14 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.mauriciojimenez.pokedex.data.local.entity.PokemonNameEntity
 
 @Dao
 interface PokemonNameDao {
-    @Query("SELECT *  FROM pokemon_name_table ORDER BY id DESC")
-    suspend fun getAllPokemonName():List<PokemonNameEntity>
+    @Query("SELECT *  FROM pokemon_name_table")
+    suspend fun getAllPokemonName():List<String>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllPokemonName(name:List<String>)
+    suspend fun insertAllPokemonName(pokemonName:List<String>)
 
     @Query("DELETE FROM pokemon_name_table")
     suspend fun deleteAllPokemonName()

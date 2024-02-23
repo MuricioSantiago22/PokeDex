@@ -11,8 +11,8 @@ class PokemonSpriteDaoImpl @Inject constructor(private val pokemonSpriteDao: Pok
         return runSuspend { pokemonSpriteDao.getAllPokemonSprites() }
     }
 
-    fun insertAllPokemonName(url: List<String>) {
-        runSuspend { pokemonSpriteDao.insertAllPokemonSprites(url) }
+    fun insertAllPokemonName(pokemonSprite: List<String>) {
+        runSuspend { pokemonSpriteDao.insertAllPokemonSprites(pokemonSprite) }
     }
 
     fun deleteAllPokemonName() {

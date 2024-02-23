@@ -8,7 +8,7 @@ import com.mauriciojimenez.pokedex.domain.entity.dataEntity.PokemonSprite
 @Entity(tableName = "sprites_table")
 data class PokemonSpritesEntity(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="id") val id : Int = 0,
-    @ColumnInfo(name="sprite")val frontDefault: String? = null
+    @ColumnInfo(name="id") var id : Int = 0,
+    @ColumnInfo(name="sprite")var frontDefault: String
 )
-fun PokemonSprite.toDataBase() =PokemonSpritesEntity(frontDefault=frontDefault)
+fun PokemonSprite.toDataBase() =PokemonSpritesEntity(frontDefault=frontDefault?:"")

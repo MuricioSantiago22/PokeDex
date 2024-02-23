@@ -11,7 +11,6 @@ class GetPokemonSpriteUseCase
     private val pokemonSpritesRepository: PokemonSpritesRepository,
     private val pokemonSpriteDaoImpl: PokemonSpriteDaoImpl
 ) {
-
     operator fun invoke(url: String): Either {
         if (pokemonSpriteDaoImpl.getAllPokemonSprite().isEmpty()) {
             try {
@@ -22,8 +21,8 @@ class GetPokemonSpriteUseCase
         }
 
         return try {
-            val pokemonName = pokemonSpriteDaoImpl.getAllPokemonSprite()
-            Either.Success(pokemonName)
+            val pokemonSprite = pokemonSpriteDaoImpl.getAllPokemonSprite()
+            Either.Success(pokemonSprite)
         } catch (e: Exception) {
             Either.Error(ErrorEntity.UnknownError(e))
         }

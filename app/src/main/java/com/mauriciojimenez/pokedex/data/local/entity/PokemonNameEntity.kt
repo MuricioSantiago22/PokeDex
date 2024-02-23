@@ -8,8 +8,8 @@ import com.mauriciojimenez.pokedex.domain.entity.dataEntity.PokemonName
 @Entity(tableName = "pokemon_name_table")
 data class PokemonNameEntity(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="id") val id : Int = 0,
-    @ColumnInfo(name="name") val name : String? = null
+    @ColumnInfo(name="id") var id : Int = 0,
+    @ColumnInfo(name="pokemon_name") var name : String
 )
 
-fun PokemonName.toDataBase() =PokemonNameEntity(name = name)
+fun PokemonName.toDataBase() =PokemonNameEntity(name=name?:"")

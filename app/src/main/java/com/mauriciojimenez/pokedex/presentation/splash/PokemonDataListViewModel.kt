@@ -9,6 +9,7 @@ import com.mauriciojimenez.pokedex.domain.entity.dataEntity.PokemonName
 import com.mauriciojimenez.pokedex.domain.entity.dataEntity.PokemonSprite
 import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonSpriteUseCase
 import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonNameUseCase
+import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonSpeciesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ import kotlin.coroutines.CoroutineContext
 class PokemonDataListViewModel @Inject constructor(
     private val getPokemonNameUseCase: GetPokemonNameUseCase,
     private val getPokemonSpriteUseCase: GetPokemonSpriteUseCase,
+    private val getPokemonSpeciesUseCase: GetPokemonSpeciesUseCase,
     private val coroutineContext: CoroutineContext
 ): ViewModel() {
 
@@ -31,7 +33,7 @@ class PokemonDataListViewModel @Inject constructor(
     init {
         getPokemon()
     }
-    fun getPokemon() {
+    private fun getPokemon() {
         viewModelScope.launch(coroutineContext){
             val result = getPokemonNameUseCase()
             withContext(Dispatchers.Main) {
@@ -64,6 +66,19 @@ class PokemonDataListViewModel @Inject constructor(
 
             }
 
+        }
+    }
+
+    private fun getPokemonSpecies(name:String){
+        viewModelScope.launch (coroutineContext){
+            val result = getPokemonSpeciesUseCase(name)
+            withContext(Dispatchers.Main){
+                when(result){
+                    is Either.Success -> {}
+                    is Either.Error -> {}
+
+                }
+            }
         }
     }
 }
