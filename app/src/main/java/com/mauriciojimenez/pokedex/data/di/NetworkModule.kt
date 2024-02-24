@@ -1,6 +1,5 @@
-package com.mauriciojimenez.pokedex.data.di
+package com.mauriciojimenez.pokedex.domain.di
 
-import com.mauriciojimenez.pokedex.data.remote.network.PokemonApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
     private const val URL = "https://pokeapi.co/api/v2/"
 
     @Singleton
@@ -24,7 +22,6 @@ object NetworkModule {
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder().addInterceptor(interceptor).build()
     }
-
     @Singleton
     @Provides
     fun providerPokemonRetrofit(): Retrofit {
@@ -33,11 +30,5 @@ object NetworkModule {
             .client(provideHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
-
-    @Singleton
-    @Provides
-    fun provideTheMealApiClient(retrofit: Retrofit): PokemonApiClient {
-        return retrofit.create(PokemonApiClient::class.java)
     }
 }

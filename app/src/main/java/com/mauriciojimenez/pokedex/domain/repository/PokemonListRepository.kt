@@ -1,4 +1,4 @@
 package com.mauriciojimenez.pokedex.domain.repository
 
-class PokemonSpritesRepository {
+interface PokemonListRepository {
 }

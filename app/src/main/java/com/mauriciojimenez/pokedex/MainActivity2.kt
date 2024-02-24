@@ -1,25 +1,40 @@
 package com.mauriciojimenez.pokedex
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.runtime.Composable
-import com.mauriciojimenez.pokedex.presentation.navigation.AppNavigation
-import com.mauriciojimenez.pokedex.presentation.ui.theme.PokedexTheme
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.mauriciojimenez.pokedex.databinding.ActivityMain2Binding
 
+class MainActivity2 : AppCompatActivity() {
 
-class MainActivity2 : ComponentActivity() {
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMain2Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            PokedexTheme {
-                MyActivityUi()
-            }
+
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        val navController = findNavController(R.id.nav_host_fragment_content_main2)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        binding.fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }
     }
 
-    @Composable
-    fun MyActivityUi() {
-        AppNavigation()
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main2)
+        return navController.navigateUp(appBarConfiguration)
+                || super.onSupportNavigateUp()
     }
 }
