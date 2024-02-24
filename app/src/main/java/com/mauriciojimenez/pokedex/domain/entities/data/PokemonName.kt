@@ -1,8 +1,6 @@
 package com.mauriciojimenez.pokedex.domain.entities.data
 
-import com.google.gson.annotations.SerializedName
 
-data class Pokemon(
-    @SerializedName("name")
+data class PokemonName(
     var namePk: String
 )

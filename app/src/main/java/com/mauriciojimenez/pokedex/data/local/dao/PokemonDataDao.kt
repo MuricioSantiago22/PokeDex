@@ -4,16 +4,16 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.mauriciojimenez.pokedex.data.local.entities.PokemonUrlDataEntity
+import com.mauriciojimenez.pokedex.data.local.entities.PokemonDataEntity
 
 @Dao
-interface PokemonUrlDataDao {
-    @Query("SELECT *  FROM pokemon_name_table")
-    suspend fun getAllUrlData(): PokemonUrlDataEntity
+interface PokemonDataDao {
+    @Query("SELECT *  FROM pokemon_table")
+    suspend fun getAllUrlData(): PokemonDataEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllUrlData(pokemonUrlDataEntity:PokemonUrlDataEntity)
+    suspend fun insertAllUrlData(pokemonUrlDataEntity:PokemonDataEntity)
 
-    @Query("DELETE FROM pokemon_name_table")
+    @Query("DELETE FROM pokemon_table")
     suspend fun deleteAllUrlData()
 }

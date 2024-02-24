@@ -1,31 +1,27 @@
 package com.mauriciojimenez.pokedex.domain.useCase
 
-import com.mauriciojimenez.pokedex.data.local.repository.PokemonSpriteDaoImpl
-import com.mauriciojimenez.pokedex.domain.entities.action.Either
-import com.mauriciojimenez.pokedex.domain.entities.action.error.ErrorStatus
+import com.mauriciojimenez.pokedex.data.local.repository.PokemonDataDaoImpl
 import com.mauriciojimenez.pokedex.domain.repository.PokemonSpritesRepository
 import javax.inject.Inject
 
-class GetPokemonSpriteUseCase
+class GetPokemonSpritesUseCase
 @Inject constructor(
     private val pokemonSpritesRepository: PokemonSpritesRepository,
-    private val pokemonSpriteDaoImpl: PokemonSpriteDaoImpl
-) {
-    operator fun invoke(url: String): Either {
-        if (pokemonSpriteDaoImpl.getAllPokemonSprite().isEmpty()) {
+    private val pokemonDataDaoImpl: PokemonDataDaoImpl
+) {}
+   /* operator fun invoke(url: String): Either {
+        if (pokemonDataDaoImpl.getAllUrlData().isEmpty()) {
             try {
-                pokemonSpritesRepository.getPokemonSprite(url)
+                pokemonSpritesRepository.getPokemonSprites(url)
             } catch (e: Exception) {
                 return Either.Error(ErrorStatus.UnknownError(e))
             }
         }
 
         return try {
-            val pokemonSprite = pokemonSpriteDaoImpl.getAllPokemonSprite()
+            val pokemonSprite = pokemonDataDaoImpl.getAllUrlData()
             Either.Success(pokemonSprite)
         } catch (e: Exception) {
             Either.Error(ErrorStatus.UnknownError(e))
         }
-    }
-}
-
+    }*/

@@ -7,13 +7,13 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class PokemonUrlDataDaoImpl @Inject constructor(private val pokemonSpriteDao: PokemonDataDao) {
-    fun getAllUrlData(): PokemonDataEntity {
+class PokemonDataDaoImpl @Inject constructor(private val pokemonSpriteDao: PokemonDataDao) {
+    fun getAllPokemonData(): PokemonDataEntity {
         return runSuspend { pokemonSpriteDao.getAllUrlData() }
     }
 
-    fun insertAllData(pokemonSprite: PokemonDataEntity) {
-        runSuspend { pokemonSpriteDao.insertAllUrlData(pokemonSprite) }
+    fun insertAllPokemonData(pokemonData: PokemonDataEntity) {
+        runSuspend { pokemonSpriteDao.insertAllUrlData(pokemonData) }
     }
 
     fun deleteAllData() {

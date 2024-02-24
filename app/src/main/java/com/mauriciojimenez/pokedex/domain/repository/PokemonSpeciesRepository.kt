@@ -1,7 +1,7 @@
 package com.mauriciojimenez.pokedex.domain.repository
 
-import com.mauriciojimenez.pokedex.domain.entity.action.Either
+import com.mauriciojimenez.pokedex.domain.entities.action.Either
 
 interface PokemonSpeciesRepository {
-    fun getPokemonSpecie(name:String): Either
+    fun getPokemonSpecies(name:String): Either
 }

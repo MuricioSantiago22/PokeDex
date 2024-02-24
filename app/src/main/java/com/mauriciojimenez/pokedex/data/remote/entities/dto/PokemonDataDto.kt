@@ -1,8 +1,11 @@
 package com.mauriciojimenez.pokedex.data.remote.entities.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class PokemonDataDto (
+    @SerializedName("name")
+    var name:String,
 
-    var namePkList: List<PokemonNameEntity>,
-
-    var urlDataList: List<PokemonUrlEntity>
+    @SerializedName("url")
+    var url: String
 )

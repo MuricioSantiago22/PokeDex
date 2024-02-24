@@ -1,4 +1,5 @@
 package com.mauriciojimenez.pokedex.domain.entities.data
 
-class PokemonListName {
-}
+data class PokemonListName (
+    var listNamePk: List<PokemonName>
+)

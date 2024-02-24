@@ -14,19 +14,17 @@ import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
 @HiltViewModel
-class PokemonDataListViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val getPokemonNameUseCase: GetPokemonNameUseCase,
     private val coroutineContext: CoroutineContext
 ): ViewModel() {
      private val _pokemonNameNameList : MutableLiveData<List<PokemonName>> =MutableLiveData()
 
-    init {
-        getPokemon()
-    }
-    private fun getPokemon() {
+
+     fun getPokemon() {
         viewModelScope.launch(coroutineContext){
-            val result = getPokemonNameUseCase()
-            withContext(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
+                val result = getPokemonNameUseCase()
             when(result){
 
                 is Either.Error -> {

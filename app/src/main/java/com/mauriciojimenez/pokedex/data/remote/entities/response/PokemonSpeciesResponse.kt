@@ -1,4 +1,4 @@
-package com.mauriciojimenez.pokedex.data.remote.entity.response
+package com.mauriciojimenez.pokedex.data.remote.entities.response
 
 import com.google.gson.annotations.SerializedName
 

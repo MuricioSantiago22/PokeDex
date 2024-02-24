@@ -2,6 +2,6 @@ package com.mauriciojimenez.pokedex.domain.repository
 
 import com.mauriciojimenez.pokedex.domain.entities.action.Either
 
-interface PokemonNameRepository {
+interface PokemonDataRepository {
     fun getPokemonName(): Either
 }

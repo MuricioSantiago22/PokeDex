@@ -7,13 +7,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.activity.viewModels
 import com.mauriciojimenez.pokedex.ui.theme.PokedexTheme
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.compose.ui.Modifier
 import com.mauriciojimenez.pokedex.presentation.navigation.AppNavigation
 
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val mainViewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,5 +29,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        mainViewModel.getPokemon()
     }
 }

@@ -1,5 +1,6 @@
-package com.mauriciojimenez.pokedex.domain.di
+package com.mauriciojimenez.pokedex.data.di
 
+import com.mauriciojimenez.pokedex.data.remote.network.PokemonApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,11 @@ object NetworkModule {
             .client(provideHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun providePokemonApiClient(retrofit: Retrofit): PokemonApiClient {
+        return retrofit.create(PokemonApiClient::class.java)
     }
 }
