@@ -5,5 +5,6 @@ import com.mauriciojimenez.pokedex.data.remote.entities.dto.PokemonDataDto
 
 data class PokemonDataResponse(
     @SerializedName("results")
-    var pokemonData:PokemonDataDto
+    var results:List<PokemonDataDto>
+
 )

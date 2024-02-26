@@ -1,6 +1,6 @@
 package com.mauriciojimenez.pokedex.presentation.splash
 
-import android.app.Activity
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,10 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.mauriciojimenez.pokedex.R
-import com.mauriciojimenez.pokedex.presentation.navigation.Routes
 import kotlinx.coroutines.delay
 
 
@@ -29,7 +27,7 @@ fun SplashScreen(navController: NavController){
     LaunchedEffect(key1 = true){
         delay(5000)
         navController.popBackStack()
-        navController.navigate(route = Routes.PokemonListScreen.route)
+        //navController.navigate(route = Routes.PokemonListScreen.route)
 
     }
     Splash()

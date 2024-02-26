@@ -2,29 +2,36 @@ package com.mauriciojimenez.pokedex.data.local.repository
 
 import com.mauriciojimenez.pokedex.data.local.dao.PokemonDataDao
 import com.mauriciojimenez.pokedex.data.local.entities.PokemonDataEntity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class PokemonDataDaoImpl @Inject constructor(private val pokemonSpriteDao: PokemonDataDao) {
-    fun getAllPokemonData(): PokemonDataEntity {
-        return runSuspend { pokemonSpriteDao.getAllUrlData() }
+class PokemonDataDaoImpl @Inject constructor(private val pokemonDataDao: PokemonDataDao) {
+
+
+    suspend fun countFiles(): Int{
+    return pokemonDataDao.countEmptyFiles()}
+
+    suspend fun getListData():List<PokemonDataEntity>  {
+        return  pokemonDataDao.getListData()
     }
 
-    fun insertAllPokemonData(pokemonData: PokemonDataEntity) {
-        runSuspend { pokemonSpriteDao.insertAllUrlData(pokemonData) }
+
+    suspend fun insertListData(pokemonListData: List<PokemonDataEntity>) {
+         pokemonDataDao.insertListData(pokemonListData)
     }
 
-    fun deleteAllData() {
-        runSuspend { pokemonSpriteDao.deleteAllUrlData() }
+    suspend fun deleteListData() {
+        pokemonDataDao.deleteListData()
     }
 
-    private inline fun <T> runSuspend(crossinline block: suspend () -> T): T {
+    suspend fun updateImage(image:MutableList<PokemonDataEntity>){
+        pokemonDataDao.updateImage(image)
+    }
+
+    /*private inline fun <T> runSuspend(crossinline block: suspend () -> T): T {
         return runBlocking {
             withContext(Dispatchers.IO) {
                 block()
             }
         }
-    }
+    }*/
 }

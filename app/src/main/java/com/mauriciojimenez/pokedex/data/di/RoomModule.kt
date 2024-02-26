@@ -1,4 +1,4 @@
-package com.mauriciojimenez.pokedex.data.local.di
+package com.mauriciojimenez.pokedex.data.di
 
 import android.content.Context
 import androidx.room.Room

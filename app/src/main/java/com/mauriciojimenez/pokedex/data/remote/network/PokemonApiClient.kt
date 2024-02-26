@@ -4,6 +4,7 @@ import com.mauriciojimenez.pokedex.data.remote.entities.response.PokemonDataResp
 import com.mauriciojimenez.pokedex.data.remote.entities.response.PokemonSpeciesResponse
 import com.mauriciojimenez.pokedex.data.remote.entities.response.PokemonSpritesResponse
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -13,11 +14,12 @@ interface PokemonApiClient {
     @GET
     fun getPokemonSprite(@Url url: String
     ): Call<PokemonSpritesResponse>
+
     @GET("pokemon")
-    fun getPokemonData(
+    suspend fun getPokemonData(
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
-    ): Call<PokemonDataResponse>
+    ): Response<PokemonDataResponse>
 
     @GET("pokemon-species/{name}")
     fun getPokemonSpecies(

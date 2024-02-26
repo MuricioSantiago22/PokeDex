@@ -7,5 +7,7 @@ data class PokemonDataDto (
     var name:String,
 
     @SerializedName("url")
-    var url: String
+    var url: String,
+
+    var image: String
 )

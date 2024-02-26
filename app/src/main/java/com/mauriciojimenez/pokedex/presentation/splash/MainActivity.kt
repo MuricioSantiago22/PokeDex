@@ -16,6 +16,7 @@ import com.mauriciojimenez.pokedex.presentation.navigation.AppNavigation
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     private val mainViewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,4 +32,5 @@ class MainActivity : ComponentActivity() {
         }
         mainViewModel.getPokemon()
     }
+
 }
