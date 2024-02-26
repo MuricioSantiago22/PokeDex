@@ -16,10 +16,9 @@ object ViewModelModule {
     @Provides
     fun providePokemonDataListViewModel(
         getPokemonDataUseCase: GetPokemonDataUseCase,
-        getPokemonSpritesUseCase: GetPokemonSpritesUseCase
 
     ): MainViewModel{
-        return MainViewModel(getPokemonDataUseCase, getPokemonSpritesUseCase, provideIOCoroutineContext())
+        return MainViewModel(getPokemonDataUseCase,  provideIOCoroutineContext())
     }
 
 }
