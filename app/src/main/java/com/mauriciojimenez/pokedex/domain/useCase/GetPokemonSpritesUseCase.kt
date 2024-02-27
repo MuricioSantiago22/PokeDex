@@ -6,9 +6,12 @@ import javax.inject.Inject
 
 class GetPokemonSpritesUseCase
 @Inject constructor(
-    private val pokemonSpritesRepository: PokemonSpritesRepository,
-    private val pokemonDataDaoImpl: PokemonDataDaoImpl
-) {}
+    private val pokemonSpritesRepository: PokemonSpritesRepository
+) {
+   suspend operator fun invoke(id:Int){
+       pokemonSpritesRepository.getPokemonSprites(id)
+   }
+}
    /* operator fun invoke(url: String): Either {
         if (pokemonDataDaoImpl.getAllUrlData().isEmpty()) {
             try {
@@ -25,3 +28,4 @@ class GetPokemonSpritesUseCase
             Either.Error(ErrorStatus.UnknownError(e))
         }
     }*/
+

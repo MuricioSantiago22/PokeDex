@@ -2,7 +2,6 @@ package com.mauriciojimenez.pokedex.data.repository
 
 import com.mauriciojimenez.pokedex.data.remote.network.PokemonApiClient
 import com.mauriciojimenez.pokedex.domain.entities.action.Either
-import com.mauriciojimenez.pokedex.domain.entities.action.error.ErrorStatus
 import com.mauriciojimenez.pokedex.domain.repository.PokemonSpeciesRepository
 import javax.inject.Inject
 

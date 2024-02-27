@@ -1,9 +1,8 @@
 package com.mauriciojimenez.pokedex.presentation.di
 
 import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonDataUseCase
-import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonSpritesUseCase
 import com.mauriciojimenez.pokedex.presentation.di.CoroutineScopeModule.provideIOCoroutineContext
-import com.mauriciojimenez.pokedex.presentation.splash.MainViewModel
+import com.mauriciojimenez.pokedex.presentation.features.pokemonSplashView.MainViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +16,7 @@ object ViewModelModule {
     fun providePokemonDataListViewModel(
         getPokemonDataUseCase: GetPokemonDataUseCase,
 
-    ): MainViewModel{
+    ): MainViewModel {
         return MainViewModel(getPokemonDataUseCase,  provideIOCoroutineContext())
     }
 

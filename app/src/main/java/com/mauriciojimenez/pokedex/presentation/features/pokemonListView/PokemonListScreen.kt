@@ -2,6 +2,7 @@ package com.mauriciojimenez.pokedex.presentation.features.pokemonListView
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -16,7 +17,7 @@ import androidx.navigation.NavController
 import com.mauriciojimenez.pokedex.ui.theme.PokedexTheme
 
 
-/*@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonListScreen(navController: NavController){
     val viewModel: PokemonListViewModel = hiltViewModel()
@@ -39,10 +40,10 @@ fun PokemonListScreen(navController: NavController){
             LazyColumn(
                 modifier = Modifier.padding(padding)
             ) {
-                items(pokemonNameList.value) { pokemonData ->
-                    PokemonListCell(pokemon = pokemonData, navController = navController)
+                items(nameList.value) { pokemonName ->
+                    PokemonListCell(pokemon = pokemonName, navController = navController)
                 }
             }
         }
     }
-}*/
+}

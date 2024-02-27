@@ -7,5 +7,4 @@ fun PokemonData.toEntity()= PokemonDataEntity(
     id=0,
     name= name,
     url = url,
-    image = ""
 )

@@ -1,4 +1,4 @@
-package com.mauriciojimenez.pokedex.presentation.splash
+package com.mauriciojimenez.pokedex.presentation.features.pokemonSplashView
 
 
 import android.os.Bundle

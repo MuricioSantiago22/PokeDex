@@ -23,7 +23,7 @@ import com.mauriciojimenez.pokedex.presentation.navigation.Routes
 fun PokemonListCell(pokemon: PokemonData, navController: NavController){
     Row(
         modifier = Modifier
-            .padding(20.dp)
+            .padding(8.dp)
             .clickable {
                 navController.navigate(
                     route = Routes.PokemonSpeciesScreen.route
@@ -34,7 +34,7 @@ fun PokemonListCell(pokemon: PokemonData, navController: NavController){
             model = pokemon.url,
             contentDescription = "",
             modifier = Modifier
-                .size(350.dp)
+                .size(280.dp)
                 .clip(CircleShape)
                 .background(Color.Gray.copy(alpha = 0.1f))
                 .padding(4.dp)

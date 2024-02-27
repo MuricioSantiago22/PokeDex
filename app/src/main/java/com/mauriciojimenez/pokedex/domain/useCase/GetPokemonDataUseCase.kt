@@ -8,10 +8,9 @@ class GetPokemonDataUseCase @Inject constructor(
     private val pokemonDataRepository: PokemonDataRepository
 ) {
     suspend operator fun invoke(): List<PokemonData>{
-        val response = pokemonDataRepository.getPokemonDataFromDB()
+        val response = pokemonDataRepository.getPokemonDataFromApi()
         return if(response.isNotEmpty()){
             pokemonDataRepository.clearDataBase()
-            pokemonDataRepository.getPokemonDataFromApi()
             pokemonDataRepository.insertPokemonData(response.map { it.toEntity()})
             response
         }else{

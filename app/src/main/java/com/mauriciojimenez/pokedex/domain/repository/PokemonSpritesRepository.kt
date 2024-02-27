@@ -1,7 +1,7 @@
 package com.mauriciojimenez.pokedex.domain.repository
 
-import com.mauriciojimenez.pokedex.domain.entities.action.Either
+import com.mauriciojimenez.pokedex.domain.entities.data.PokemonSprites
 
 interface PokemonSpritesRepository {
-    fun getPokemonSprites(name:String): Either
+    suspend fun getPokemonSprites(id:Int):PokemonSprites
 }

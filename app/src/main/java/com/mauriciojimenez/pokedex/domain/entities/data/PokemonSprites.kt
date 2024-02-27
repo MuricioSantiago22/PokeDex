@@ -1,5 +1,5 @@
 package com.mauriciojimenez.pokedex.domain.entities.data
 
-data class PokemonUrlSprite(
+data class PokemonSprites(
     var sprite: String
 )

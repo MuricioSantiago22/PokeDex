@@ -18,7 +18,9 @@ class PokemonDataRepositoryImpl
 
     override suspend fun getPokemonDataFromApi():List<PokemonData>{
             val response  =  client.getPokemonData(151, 0)
-            return response.body()?.results?.map { it.toDomain() }?: listOf()}
+            return response.body()?.results?.map { it.toDomain() }?: listOf()
+    }
+
 
     override suspend fun getPokemonDataFromDB(): List<PokemonData> {
         val response:List<PokemonDataEntity> = pokemonDataDaoImpl.getListData()
@@ -29,7 +31,9 @@ class PokemonDataRepositoryImpl
         pokemonDataDaoImpl.insertListData(list)
     }
 
-    override suspend fun clearDataBase() {}
+    override suspend fun clearDataBase() {
+        pokemonDataDaoImpl.deleteListData()
+    }
 }
 
 

@@ -1,12 +1,8 @@
-package com.mauriciojimenez.pokedex.presentation.splash
+package com.mauriciojimenez.pokedex.presentation.features.pokemonSplashView
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mauriciojimenez.pokedex.domain.entities.data.PokemonData
-import com.mauriciojimenez.pokedex.domain.entities.data.PokemonUrlSprite
 import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonDataUseCase
-import com.mauriciojimenez.pokedex.domain.useCase.GetPokemonSpritesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,14 +13,12 @@ class MainViewModel @Inject constructor(
     private val getPokemonDataUseCase: GetPokemonDataUseCase,
     private val coroutineContext: CoroutineContext
 ): ViewModel() {
-     private val _pokemonNameDataList : MutableLiveData<List<PokemonData>> =MutableLiveData()
-
-    private val _pokemonUrlSprite: MutableLiveData<List<PokemonUrlSprite>> = MutableLiveData()
      fun getPokemon() {
         viewModelScope.launch(coroutineContext) {
           getPokemonDataUseCase()
         }
      }
+
 
 
 
@@ -41,7 +35,7 @@ class MainViewModel @Inject constructor(
                         result.error
                     }
                     is Either.Success -> {
-                        _pokemonUrlSprite.value = result.getData()
+                        _pokemonSprites.value = result.getData()
                     }
                 }
 

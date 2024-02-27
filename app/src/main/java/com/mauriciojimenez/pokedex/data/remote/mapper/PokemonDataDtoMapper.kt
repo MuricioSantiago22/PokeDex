@@ -13,8 +13,7 @@ fun PokemonDataDto.toDomain()=PokemonData(
 fun PokemonDataDto.toEntity(id: Int)= PokemonDataEntity(
     id= id,
     name = this.name,
-    url = this.url,
-    image=this.image
+    url = this.url
 )
 
 
