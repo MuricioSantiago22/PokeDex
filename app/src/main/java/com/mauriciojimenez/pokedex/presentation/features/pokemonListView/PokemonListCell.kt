@@ -34,7 +34,7 @@ fun PokemonListCell(pokemon: PokemonData, navController: NavController){
             model = pokemon.url,
             contentDescription = "",
             modifier = Modifier
-                .size(280.dp)
+                .size(250.dp)
                 .clip(CircleShape)
                 .background(Color.Gray.copy(alpha = 0.1f))
                 .padding(4.dp)
@@ -47,7 +47,7 @@ fun PokemonListCell(pokemon: PokemonData, navController: NavController){
             pokemon.name.let {
                 Text(
                     it,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.ExtraBold
 
                 )

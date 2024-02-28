@@ -1,6 +1,5 @@
 package com.mauriciojimenez.pokedex.domain.useCase
 
-import com.mauriciojimenez.pokedex.data.local.repository.PokemonDataDaoImpl
 import com.mauriciojimenez.pokedex.domain.repository.PokemonSpritesRepository
 import javax.inject.Inject
 

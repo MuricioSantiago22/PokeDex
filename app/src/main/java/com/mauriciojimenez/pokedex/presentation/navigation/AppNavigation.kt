@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mauriciojimenez.pokedex.presentation.features.pokemonSpeciesView.PokemonSpeciesScreen
 import com.mauriciojimenez.pokedex.presentation.features.pokemonListView.PokemonListScreen
 import com.mauriciojimenez.pokedex.presentation.features.pokemonSplashView.SplashScreen
 
@@ -22,6 +23,10 @@ fun AppNavigation() {
         composable(route= Routes.PokemonListScreen.route){
             PokemonListScreen(navController)
 
+        }
+
+        composable(route= Routes.PokemonSpeciesScreen.route){
+            PokemonSpeciesScreen(navController)
         }
     }
 

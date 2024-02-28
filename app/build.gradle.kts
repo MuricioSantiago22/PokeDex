@@ -92,7 +92,7 @@ dependencies {
     implementation ("io.coil-kt:coil-compose:2.2.2")
 
     //LiveData
-    implementation ("androidx.compose.runtime:runtime-livedata:1.4.3")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.2")
 
     //Room
     val room_version = "2.6.1"

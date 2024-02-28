@@ -1,6 +1,5 @@
 package com.mauriciojimenez.pokedex.data.repository
 
-import com.mauriciojimenez.pokedex.data.local.repository.PokemonDataDaoImpl
 import com.mauriciojimenez.pokedex.data.remote.mapper.toDomain
 import com.mauriciojimenez.pokedex.data.remote.network.PokemonApiClient
 import com.mauriciojimenez.pokedex.domain.entities.data.PokemonSprites
@@ -8,8 +7,7 @@ import com.mauriciojimenez.pokedex.domain.repository.PokemonSpritesRepository
 import javax.inject.Inject
 
 class PokemonSpritesRepositoryImpl @Inject constructor(
-    private val client: PokemonApiClient,
-    private val pokemonDataDaoImpl: PokemonDataDaoImpl
+    private val client: PokemonApiClient
 ): PokemonSpritesRepository {
     /*override fun getPokemonSprite(url:String): Either = try{
         val response = client.getPokemonSprite(url).execute()

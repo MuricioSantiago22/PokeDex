@@ -1,8 +1,8 @@
 package com.mauriciojimenez.pokedex.data.repository
 
+import com.mauriciojimenez.pokedex.data.local.dao.PokemonDataDao
 import com.mauriciojimenez.pokedex.data.local.entities.PokemonDataEntity
 import com.mauriciojimenez.pokedex.data.local.mappers.toDomain
-import com.mauriciojimenez.pokedex.data.local.repository.PokemonDataDaoImpl
 import com.mauriciojimenez.pokedex.data.remote.mapper.toDomain
 import com.mauriciojimenez.pokedex.data.remote.network.PokemonApiClient
 import com.mauriciojimenez.pokedex.domain.entities.data.PokemonData
@@ -13,7 +13,7 @@ import javax.inject.Inject
 class PokemonDataRepositoryImpl
 @Inject constructor(
     private val client: PokemonApiClient,
-    private val pokemonDataDaoImpl: PokemonDataDaoImpl
+    private val pokemonDataDao: PokemonDataDao
 ): PokemonDataRepository {
 
     override suspend fun getPokemonDataFromApi():List<PokemonData>{
@@ -23,16 +23,16 @@ class PokemonDataRepositoryImpl
 
 
     override suspend fun getPokemonDataFromDB(): List<PokemonData> {
-        val response:List<PokemonDataEntity> = pokemonDataDaoImpl.getListData()
+        val response:List<PokemonDataEntity> = pokemonDataDao.getListData()
         return  response.map { it.toDomain() }
     }
 
     override suspend fun insertPokemonData(list: List<PokemonDataEntity>) {
-        pokemonDataDaoImpl.insertListData(list)
+        pokemonDataDao.insertListData(list)
     }
 
     override suspend fun clearDataBase() {
-        pokemonDataDaoImpl.deleteListData()
+        pokemonDataDao.deleteListData()
     }
 }
 
